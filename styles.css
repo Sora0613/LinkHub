@@ -1,0 +1,233 @@
+/* styles.css */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    width: 100%;
+}
+
+:root {
+    --background-color: #121212;
+    --text-color: #ffffff;
+    --card-background-color: #1f1f1f;
+    --card-hover-background-color: #333333;
+    --overlay-background-color: rgba(0, 0, 0, 0.7);
+}
+
+.light-mode {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --card-background-color: #f5f5f5;
+    --card-hover-background-color: #dddddd;
+    --overlay-background-color: rgba(255, 255, 255, 0.7);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-top: 2rem;
+    width: 100%;
+    max-width: 600px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.switch {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    display: inline-block;
+    width: 34px;
+    height: 20px;
+    z-index: 1000;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(14px);
+}
+
+.profile-img {
+    width: 150px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    margin: 0.5rem 0;
+}
+
+.comment {
+    font-style: italic;
+    color: #bbbbbb;
+    margin-top: 0.5rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    flex: 1;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+    margin-bottom: 2rem; /* フッターとボタンの間の隙間を広げる */
+}
+
+.link-card {
+    background-color: var(--card-background-color);
+    border-radius: 8px;
+    width: 100%;
+    margin: 1rem 0;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+}
+
+.link-card a {
+    color: var(--text-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.link-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.link-card:hover a {
+    background-color: var(--card-hover-background-color);
+}
+
+.icon {
+    font-size: 2rem;
+    margin-right: 1rem;
+}
+
+.link-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.link-content h2 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.link-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #bbbbbb;
+}
+
+footer {
+    text-align: center;
+    padding: 0.5rem 0;
+    background-color: var(--card-background-color);
+    width: 100%;
+    margin-top: auto;
+}
+
+@media (max-width: 600px) {
+    .item {
+        width: calc(100% - 1rem);
+    }
+
+    .profile-img {
+        width: 100px;
+    }
+
+    .link-card {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .link-card a {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    .icon {
+        font-size: 1.5rem;
+    }
+
+    .link-content h2 {
+        font-size: 1rem;
+    }
+
+    .link-content p {
+        font-size: 0.8rem;
+    }
+
+    header, main {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    footer {
+        padding: 0.5rem;
+    }
+
+    .switch {
+        top: 1rem;
+        right: 1rem;
+        transform: translate(0, 0); /* トグルボタンの位置を調整 */
+    }
+}
